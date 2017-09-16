@@ -80,7 +80,10 @@ public class Tile extends JButton {
 
 	public void setKey(Key key) {
 		this.key = key;
-		setIcon(key.getIcon());
+		if (key == null)
+			setIcon(null);
+		else
+			setIcon(key.getIcon());
 	}
 
 	public void setWalkable(Boolean walkable) {
