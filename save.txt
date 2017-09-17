@@ -1,10 +1,11 @@
+15
 Doz Ciztem
 6
 6
-Key Disk, Key Note, Donkey, Pinkey, Monkey
-Key Note
+Key Disk, Key Note, Donkey, Pinkey, Monkey, Pinkey
+Key Note, Key Note
 
-Donkey
+Donkey, Donkey
 
 
 
@@ -69,9 +70,9 @@ Donkey
 
 
 
-Ban Gei
+
 Monkey
-
+Can Ser
 
 
 
@@ -107,7 +108,7 @@ Key Note
 
 
 Treasure Chest
-
+Ban Gei
 Pinkey
 
 Key Disk
@@ -121,7 +122,7 @@ Key Disk
 
 
 
-Can Ser
+
 
 
 
