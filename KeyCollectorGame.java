@@ -123,13 +123,6 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		tiles[4][4].setKey(treasurechest);
 		randomPlaceKeys();
 
-		// Cheat code
-		players[0].addKey(keydisk);
-		players[0].addKey(keynote);
-		players[0].addKey(donkey);
-		players[0].addKey(pinkey);
-		players[0].addKey(monkey);
-
 		// Initialize first player
 		current_player = players[0];
 		current_tile = tiles[current_player.getX()][current_player.getY()];
@@ -177,6 +170,8 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		Movement m = current_player.getMovement();
 		// Reset all tile's walkable status
 		resetWalkable();
+		// Change colour of current tile
+		current_tile.setBackground(new java.awt.Color(0, 255, 0));
 		// Set tiles's walkable status
 		if (m.mustSkip()) {
 			for (int i = 0; i < 9; i++) {
@@ -237,6 +232,8 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
 				tiles[i][j].setWalkable(false);
+				// Reset colour
+				tiles[i][j].setBackground(new java.awt.Color(104, 69, 5));
 			}
 		}
 	}
