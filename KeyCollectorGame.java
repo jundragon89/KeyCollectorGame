@@ -261,6 +261,11 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 			// Clear the tiles
 			clearBoard();
 
+			// Load round number
+			if ((s = br.readLine()) != null) {
+				round = Integer.parseInt(s);
+			}
+
 	    	// Load current player
 	    	if ((s = br.readLine()) != null) {
 	    		for (int i = 0; i < 4; i++) {
@@ -270,16 +275,18 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 	    			if (players[i].getName().equals(s)) {
 						current_player = players[i];
 					}
-	    		}
+				}
 			}
-	    	// Load current tile (x, y)
-	    	if ((s = br.readLine()) != null) {
+			System.out.println(current_tile.getTileX() + " " + current_tile.getTileY());
+			// Load current tile (x, y)
+			if ((s = br.readLine()) != null) {
 				x = Integer.parseInt(s);
 			}
 			if ((s = br.readLine()) != null) {
 				y = Integer.parseInt(s);
 			}
 			current_tile = tiles[x][y];
+
 			// Load player's collected keys
     		for (int i = 0; i < 4; i++) {
     			if ((s = br.readLine()) != null) {
@@ -308,12 +315,16 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 					if ((s = br.readLine()) != null) {
 						if (s.equals("Ban Gei")) {
 	    					tiles[i][j].setPlayer(players[0]);
+	    					players[0].setCoordinates(i, j);
 	    				} else if (s.equals("Ark Imides")) {
 	    					tiles[i][j].setPlayer(players[1]);
+	    					players[1].setCoordinates(i, j);
 	    				} else if (s.equals("Can Ser")) {
 	    					tiles[i][j].setPlayer(players[2]);
+	    					players[2].setCoordinates(i, j);
 	    				} else if (s.equals("Doz Ciztem")) {
 	    					tiles[i][j].setPlayer(players[3]);
+	    					players[3].setCoordinates(i, j);
 	    				}
 					}
 					// Load key if any
@@ -338,6 +349,8 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 			in.close();
 			// Recalculate walkable 
 			checkWalkable();
+			// Update status
+			updateGameStatus();
 		}
 	    catch (FileNotFoundException ex) {
 			updateActionLabel("Error opening save file.");
@@ -353,10 +366,12 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 			try {
 				// Create or load save file
 		    	FileOutputStream out = new FileOutputStream("save.txt");
+		    	// Save current round number
+		    	s += round + System.getProperty("line.separator");
 		    	// Save current player and tile
 		    	s += current_player.getName() + System.getProperty("line.separator");
-		    	s += current_tile.getTileX() + System.getProperty("line.separator");
-		    	s += current_tile.getTileY() + System.getProperty("line.separator");
+		    	s += current_player.getX() + System.getProperty("line.separator");
+		    	s += current_player.getY() + System.getProperty("line.separator");
 		    	// Save player's key
 		    	for (int i = 0; i < 4; i++) {
 		    		s += players[i].keysCollected() + System.getProperty("line.separator");
