@@ -1,5 +1,10 @@
 # KeyCollectorGame
-OOAD Assignment
+
+To run the code:
+- Open CMD in the directory where the Java files are stored
+- In CMD, type in: javac KeyCollectorGame.java
+- In CMD, type in: java KeyCollectorGame
+- Enjoy!
 
 Current Progress:
 - Code done bugless (X)
