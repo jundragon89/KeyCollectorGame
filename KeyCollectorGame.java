@@ -1,3 +1,5 @@
+import java.util.Random;
+import java.util.ArrayList;
 import java.io.*;
 import javax.swing.*;
 import java.awt.*;
@@ -118,12 +120,8 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		tiles[8][8].setPlayer(dozciztem);
 
 		// Place keys on tiles
-		tiles[5][5].setKey(treasurechest);
-		tiles[5][6].setKey(pinkey);
-		tiles[5][7].setKey(keydisk);
-		tiles[4][8].setKey(keynote);
-		tiles[3][5].setKey(monkey);
-		tiles[6][6].setKey(donkey);
+		tiles[4][4].setKey(treasurechest);
+		randomPlaceKeys();
 
 		// Cheat code
 		players[0].addKey(keydisk);
@@ -140,6 +138,37 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		// Update text labels
 		updateGameStatus();
 		updateActionLabel("");
+
+	}
+
+	private void randomPlaceKeys() {
+		// ArrayList to store coordinates of unoccupied tiles
+		ArrayList<Integer> xList = new ArrayList<Integer>();
+		ArrayList<Integer> yList = new ArrayList<Integer>();
+		// Random seed
+		Random rand = new Random();
+		// Check and store the coordinates with no player and key occupied
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 9; j++) {
+				if (!tiles[i][j].hasPlayer() && !tiles[i][j].hasKey()) {
+					xList.add(i);
+					yList.add(j);
+				}
+			}
+		}
+		//
+		for (int i = 1; i < 6; i++) {
+			// Generate a number between 0 to the (size of available tiles - 1)
+			int n = rand.nextInt(xList.size() - 1);
+			// Get the nth integer from xList and yList and load as x and y
+			int x = xList.get(n);
+			int y = yList.get(n);
+			// Remove nth integer from xList and yList, so it won't be repeated
+			xList.remove(n);
+			yList.remove(n);
+			// Set ith key to tiles[x][y]
+			tiles[x][y].setKey(keys[i]);
+		}
 
 	}
 
@@ -200,7 +229,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		}
 		// Make treasure chest unwalkable if player haven't collected all keys
 		if (current_player.numKeysCollected() < 5) {
-			tiles[5][5].setWalkable(false);
+			tiles[4][4].setWalkable(false);
 		}
 	}
 
@@ -216,7 +245,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		if (!gameOver) 
 			gameStatus = "<html><b>" + current_player.getName() + "</b>'s turn.<br>";
 		else
-			gameStatus = "<html><b>" + tiles[5][5].getPlayer().getName() + "</b> wins!<br>";
+			gameStatus = "<html><b>" + tiles[4][4].getPlayer().getName() + "</b> wins!<br>";
 
 		for (int  i = 0; i < 4; i++) {
 			gameStatus += "<b>" + players[i].getName() + "</b>'s collected: " + players[i].keysCollected() + "<br>";
@@ -444,7 +473,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 					current_player.setCoordinates(clickedTile.getTileX(), clickedTile.getTileY());
 
 					// Game over if current player occupied the tile treasure is on
-					gameOver = (tiles[5][5].getPlayer() == current_player);
+					gameOver = (tiles[4][4].getPlayer() == current_player);
 
 					// Game loop
 					if (!gameOver) {
