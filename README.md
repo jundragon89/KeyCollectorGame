@@ -1,7 +1,12 @@
 # KeyCollectorGame
 OOAD Assignment
 
-I will add to the to do list:
+Current Progress:
+- Code done bugless (X)
+- Documentation     ( )
+- Distribute class  ( )
+
+TO BE IMPROVED:
 - Add pop up declare winner
 - Add GUI status board
-- MVC-fy the code???
+- Apply MVC
