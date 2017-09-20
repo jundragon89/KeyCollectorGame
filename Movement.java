@@ -2,12 +2,12 @@
 public class Movement {
 
 	// Horizontal, Vertical, Diagonal
-	int horizontal;
-	int vertical;
-	int diagonal;
+	private int horizontal;
+	private int vertical;
+	private int diagonal;
 
 	// Is it up to or must be skipped
-	Boolean mustSkip = false;
+	private Boolean mustSkip = false;
 
 
 	// Constructor

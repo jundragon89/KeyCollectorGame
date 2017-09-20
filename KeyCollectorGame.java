@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+// Singleton class for the game
 public class KeyCollectorGame extends javax.swing.JFrame implements ActionListener  {
 
 	// Game objects
@@ -24,11 +25,12 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 	// Create status panel
 	JPanel statusPanel = new JPanel(new FlowLayout());
 	javax.swing.JLabel statusLabel = new javax.swing.JLabel("");
+	// Create action panel
 	JPanel actionPanel = new JPanel(new BorderLayout());
-	JPanel menuPanel = new JPanel(new FlowLayout());
 	javax.swing.JLabel actionLabel = new javax.swing.JLabel("");
+	// Create menu panel
+	JPanel menuPanel = new JPanel(new FlowLayout());
 	
-
 	public static void main(String[] args) throws FileNotFoundException {
 		new KeyCollectorGame();
 	}
@@ -84,6 +86,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 
 		// Reset game over
 		gameOver = false;
+		round = 0;
 
 		// Generate players
 		Player bangei = new Player("Ban Gei", "icons/1.gif", 0, 0);
@@ -119,8 +122,10 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		tiles[8][0].setPlayer(canser);
 		tiles[8][8].setPlayer(dozciztem);
 
-		// Place keys on tiles
+		// Place treasure chest in the middle
 		tiles[4][4].setKey(treasurechest);
+
+		// Place keys on tile
 		randomPlaceKeys();
 
 		// Initialize first player
@@ -176,8 +181,8 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		if (m.mustSkip()) {
 			for (int i = 0; i < 9; i++) {
 				for (int j = 0; j < 9; j++) { 
-					//  Check for:	Left, 			Right,
-					//				Up, 			Down,
+					//  Check for:	Up, 			Down,	
+					//				Left, 			Right,
 					//				Bottom Left, 	Bottom Right,
 					//				Top Left, 		Top Right
 					if (i == current_player.getX() && j == current_player.getY()-m.getVertical() ||
@@ -303,7 +308,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 					}
 				}
 			}
-			System.out.println(current_tile.getTileX() + " " + current_tile.getTileY());
+
 			// Load current tile (x, y)
 			if ((s = br.readLine()) != null) {
 				x = Integer.parseInt(s);
@@ -316,6 +321,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 			// Load player's collected keys
     		for (int i = 0; i < 4; i++) {
     			if ((s = br.readLine()) != null) {
+    				// Remove comma
     				String[] keys = s.split(",");
     				for (int j = 0; j < keys.length; j++) {
     					// Remove spacing
@@ -435,7 +441,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 
 		// Convert action event source to button
 		JButton clickedButton = (JButton)ae.getSource();
-		System.out.println(clickedButton.getText());
+
 		if (clickedButton.getText().equals("New")) {
 			newGame();
 		}
@@ -451,16 +457,16 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 				// Convert action event source to tile
 				Tile clickedTile = (Tile)ae.getSource();
 
-				// Debugging placeholder
-				int x = clickedTile.getTileX();
-				int y = clickedTile.getTileY();
-				String player = "";
-				String key = "";
-				if (clickedTile.hasPlayer())
-					player = tiles[x][y].getPlayer().getName();
-				if (clickedTile.hasKey())
-					key = tiles[x][y].getKey().getName();
-				System.out.println("(" + x +", " + y + ") - " + player + key);
+				// // Debugging placeholder
+				// int x = clickedTile.getTileX();
+				// int y = clickedTile.getTileY();
+				// String player = "";
+				// String key = "";
+				// if (clickedTile.hasPlayer())
+				// 	player = tiles[x][y].getPlayer().getName();
+				// if (clickedTile.hasKey())
+				// 	key = tiles[x][y].getKey().getName();
+				// System.out.println("(" + x +", " + y + ") - " + player + key);
 
 				// Attempt to move to clicked tile
 				if (current_tile.attemptMove(clickedTile)) {
