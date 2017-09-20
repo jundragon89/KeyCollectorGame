@@ -3,7 +3,8 @@ import java.util.ArrayList;
 public class Player extends Item {
 	
 	// Stack to store keys collected by player
-	ArrayList<Key> keys = new ArrayList<Key>();
+	private ArrayList<Key> keys = new ArrayList<Key>();
+
 	// Coordinates
 	private int x;
 	private int y;
@@ -29,10 +30,15 @@ public class Player extends Item {
 		return y;
 	}
 
+
+	// Class methods
+	// Remove all the keys from player
 	public void clearKeys() {
 		keys.clear();
 	}
 
+
+	// Return a string of all the name of keys collected by user
 	public String keysCollected() {
 		String keysCollected = "";
 		if (keys.size() > 0) {
@@ -45,11 +51,12 @@ public class Player extends Item {
 		return keysCollected;
 	}
 
+	// Return the number of keys collected by the player
 	public int numKeysCollected() {
 		return keys.size();
 	}
 
-	@Override
+	// Add key
 	public void addKey(Key k) {
 		// Check if the key is already collected, if not, put key in list
 		if (!keys.contains(k)) {

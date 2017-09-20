@@ -3,12 +3,20 @@ import javax.swing.ImageIcon;
 // Parent class for Player and Key
 public abstract class Item {
 
+	// Item's name
 	private String name;
+
+	// Item's icon
 	private ImageIcon icon;
+
+	// Item's coordinates
 	protected int x;
 	protected int y;
+
+	// Item's movement
 	protected Movement movement;
 
+	// Constructor
 	public Item(String name, String iconPath, Movement movement) {
 		this.name = name;
 		this.icon = new ImageIcon(iconPath);
@@ -38,9 +46,5 @@ public abstract class Item {
 	public void setY(int y) {
 		this.y = y;
 	}
-
-	// Methods
-	public abstract void addKey(Key k); 
-
 	
 }

@@ -6,25 +6,15 @@ public class Tile extends JButton {
 	// Tile coordinates
 	private int x;
 	private int y;
-	// Check if the tile is walkable by the current player
+
+	// Return true if the tile can be occupied
 	private Boolean walkable = false;
+
 	// The player and key key the tile is holding
 	private Key key = null;
 	private Player player = null;
 
 	// Cosntructor
-	public Tile() {
-		super();
-	}
-
-	public Tile(String text) {
-		super(text);
-	}
-
-	public Tile(String text, ImageIcon icon) {
-		super(text, icon);
-	}
-
 	public Tile(int x, int y) {
 		super();
 		this.x = x;
@@ -103,7 +93,7 @@ public class Tile extends JButton {
 	}
 
 
-	// Move
+	// Move a player from current tile to target tile
 	public Boolean attemptMove(Tile target) {
 		// Check if the target is occupied by another player.
 		if (target.getWalkable()) { // && 
