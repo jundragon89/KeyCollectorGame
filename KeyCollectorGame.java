@@ -92,6 +92,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		setVisible(true);
 	}
 
+	// Done By: Goh Kun Shun
 	private void initialize() {
 
 		// Reset game over
@@ -149,6 +150,8 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 
 	}
 
+
+	// Done By: Goh Kun Shun
 	private void randomPlaceKeys() {
 		// ArrayList to store coordinates of unoccupied tiles
 		ArrayList<Integer> xList = new ArrayList<Integer>();
@@ -180,6 +183,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 
 	}
 
+	// Done By: Goh Kun Shun
 	private void checkWalkable() {
 		// Get movement of current player
 		Movement m = current_player.getMovement();
@@ -243,6 +247,8 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		}
 	}
 
+
+	// Done By: Ng Jing Keong
 	private void resetWalkable() {
 		for (int i = 0; i < 9; i++) {
 			for (int j = 0; j < 9; j++) {
@@ -253,6 +259,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		}
 	}
 
+	// Done By: Ng Jing Keong
 	private void updateGameStatus() {
 		if (!gameOver) 
 			gameStatus = "<html><b>" + current_player.getName() + "</b>'s turn.<br>";
@@ -266,11 +273,13 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		statusLabel.setText(gameStatus);
 	}
 
+	// Done By: Ong Koon Hua
 	private void updateActionLabel(String s) {
 		String action = "<html>" + s + "</html>";
 		actionLabel.setText(action);
 	}
 
+	// Done By: Ong Koon Hua
 	private void newGame() {
 		// Clear the tiles
 		clearBoard();
@@ -278,6 +287,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		initialize();
 	}
 
+	// Done By: Ong Koon Hua
 	private void clearBoard() {
 		// Clear the tiles
 		for (int i = 0; i < 9; i++) {
@@ -288,6 +298,8 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		}
 	}
 
+
+	// Done By: Christopher Too Wei Bin
 	private void loadGame() {
 		String s = null;
 		int x = -1;
@@ -402,6 +414,7 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		}
 	}
 
+	// Done By: Christopher Too Wei Bin
 	private void saveGame() {
 		String s = "";
 		if (!gameOver) {
@@ -446,6 +459,8 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 		}
 	}
 
+
+	// Done By: Goh Kun Shun
 	@Override
 	public void actionPerformed(ActionEvent ae) {
 
