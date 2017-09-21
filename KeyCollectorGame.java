@@ -20,24 +20,24 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 	}
 
 	// Game objects
-	Tile[][] tiles = new Tile[9][9];
-	Player[] players = new Player[4];
-	Key[] keys = new Key[6];
-	Player current_player;
-	Tile current_tile;
-	int round = 0;
-	Boolean gameOver = false;
-	String gameStatus;
+	private Tile[][] tiles = new Tile[9][9];
+	private Player[] players = new Player[4];
+	private Key[] keys = new Key[6];
+	private Player current_player;
+	private Tile current_tile;
+	private int round = 0;
+	private Boolean gameOver = false;
+	private String gameStatus;
 
 	// GUI components
 	// Create status panel
-	JPanel statusPanel = new JPanel(new FlowLayout());
-	javax.swing.JLabel statusLabel = new javax.swing.JLabel("");
+	private JPanel statusPanel = new JPanel(new FlowLayout());
+	private javax.swing.JLabel statusLabel = new javax.swing.JLabel("");
 	// Create action panel
-	JPanel actionPanel = new JPanel(new BorderLayout());
-	javax.swing.JLabel actionLabel = new javax.swing.JLabel("");
+	private JPanel actionPanel = new JPanel(new BorderLayout());
+	private javax.swing.JLabel actionLabel = new javax.swing.JLabel("");
 	// Create menu panel
-	JPanel menuPanel = new JPanel(new FlowLayout());
+	private JPanel menuPanel = new JPanel(new FlowLayout());
 	
 	public static void main(String[] args) throws FileNotFoundException {
 		// Get the game (only one instance available)
