@@ -11,6 +11,14 @@ import java.awt.event.ActionListener;
 // Singleton class for the game
 public class KeyCollectorGame extends javax.swing.JFrame implements ActionListener  {
 
+	// Create an single STATIC instance of this class
+	private static KeyCollectorGame instance = new KeyCollectorGame();
+
+	// Method to retrieve the only object instantiated
+	public static KeyCollectorGame getInstance() {
+		return instance;
+	}
+
 	// Game objects
 	Tile[][] tiles = new Tile[9][9];
 	Player[] players = new Player[4];
@@ -32,10 +40,12 @@ public class KeyCollectorGame extends javax.swing.JFrame implements ActionListen
 	JPanel menuPanel = new JPanel(new FlowLayout());
 	
 	public static void main(String[] args) throws FileNotFoundException {
-		new KeyCollectorGame();
+		// Get the game (only one instance available)
+		KeyCollectorGame game = KeyCollectorGame.getInstance();
 	}
 
-	public KeyCollectorGame() {
+	// Make constructor private so it cannot be instantiated
+	private KeyCollectorGame() {
 		super("Key Collector Game");
 
 		// Create map panel
