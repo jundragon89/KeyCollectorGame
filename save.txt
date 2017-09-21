@@ -1,11 +1,7 @@
-15
+11
 Doz Ciztem
-6
-6
-Key Disk, Key Note, Donkey, Pinkey, Monkey, Pinkey
-Key Note, Key Note
-
-Donkey, Donkey
+5
+5
 
 
 
@@ -24,6 +20,8 @@ Donkey, Donkey
 
 
 
+
+Pinkey
 
 
 
@@ -47,6 +45,68 @@ Donkey, Donkey
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Key Note
+
+
+
+
+
+
+
+
+
+
+Ban Gei
+
+
+Treasure Chest
+Ark Imides
+
+
+
+
+
+
+
+
+Key Disk
+
+
+
+
+
+
+Can Ser
+
+Doz Ciztem
 
 
 
@@ -72,7 +132,6 @@ Donkey, Donkey
 
 
 Monkey
-Can Ser
 
 
 
@@ -88,66 +147,7 @@ Can Ser
 
 
 
-
-
-
-
-
-
-Ark Imides
-Key Note
-
-
-
-
-
-
-
-
-
-
-
-Treasure Chest
-Ban Gei
-Pinkey
-
-Key Disk
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Doz Ciztem
 Donkey
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
